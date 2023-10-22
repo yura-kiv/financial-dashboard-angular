@@ -1,0 +1,54 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <a
+      class="navbar-brand"
+      routerLink="/"
+      data-toggle="collapse"
+      href="#navbarSupportedContent"
+      role="button"
+      aria-expanded="false"
+      aria-controls="navbarSupportedContent"
+      >FinDashboard</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-expanded="false"
+      aria-controls="navbarSupportedContent"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a
+            routerLink="/full-table"
+            routerLinkActive="active"
+            class="nav-link"
+            href="#"
+            >Full table</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/short-table"
+            class="nav-link"
+            routerLinkActive="active"
+            href="#"
+            >Short table</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main id="page-content">
+  <router-outlet></router-outlet>
+</main>
+<footer class="footer block mt-auto py-4 bg-light text-dark-50">
+  <div class="container text-center">
+    <small>&copy; 2023 - Kivlyuk Yuriy - FinDashboard</small>
+  </div>
+</footer>
