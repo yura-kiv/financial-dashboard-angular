@@ -2,12 +2,3 @@
 
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap.scss";
-
-body {
-  min-height: 100vh;
-}
-
-app-root {
-  display: block;
-  min-height: 100vh;
-}
