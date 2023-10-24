@@ -1,61 +1,36 @@
-<div class="px-5">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">User</th>
-        <th scope="col">Value</th>
-        <th scope="col">Actual return date</th>
-        <th scope="col">Return date</th>
-        <th scope="col">Percent</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of filteredData; index as i">
-        <td>
-          {{ item.id }}
-        </td>
-        <td>
-          {{ item.user }}
-        </td>
-        <td>
-          {{ item.body }}
-        </td>
-        <td>
-          {{ item.actual_return_date }}
-        </td>
-        <td>
-          {{ item.return_date }}
-        </td>
-        <td>
-          {{ item.percent }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="d-flex justify-content-between p-2">
-    <ngb-pagination
-      [collectionSize]="collectionSize"
-      [(page)]="page"
-      [pageSize]="pageSize"
-      (pageChange)="refreshData()"
-      [maxSize]="10"
-      [rotate]="true"
-      [ellipses]="false"
-      [boundaryLinks]="true"
-    >
-    </ngb-pagination>
-
-    <select
-      class="form-select"
-      style="width: auto"
-      [(ngModel)]="pageSize"
-      (ngModelChange)="refreshData()"
-    >
-      <option [ngValue]="10">10 items per page</option>
-      <option [ngValue]="15">15 items per page</option>
-      <option [ngValue]="20">20 items per page</option>
-    </select>
-  </div>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">User</th>
+      <th scope="col">Issuance Date</th>
+      <th scope="col">Return Date</th>
+      <th scope="col">Actual Return Date</th>
+      <th scope="col">Body</th>
+      <th scope="col">Percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filteredData$ | async">
+      <th scope="row">{{ item.id }}</th>
+      <td>
+        {{ item.user }}
+      </td>
+      <td>
+        {{ item.issuance_date }}
+      </td>
+      <td>
+        {{ item.return_date }}
+      </td>
+      <td>
+        {{ item.actual_return_date }}
+      </td>
+      <td>
+        {{ item.body }}
+      </td>
+      <td>
+        {{ item.percent }}
+      </td>
+    </tr>
+  </tbody>
+</table>

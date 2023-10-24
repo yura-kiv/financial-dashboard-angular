@@ -1,1 +1,67 @@
-<app-full-table [data]="data"></app-full-table>
+<h2>Full table:</h2>
+
+<!-- Date Picker 1 -->
+<div class="mb-3">
+  <h4>Issuance Date:</h4>
+  <app-date-picker
+    (onDatesSubmit)="onIssuanceDatesSubmit($event)"
+  ></app-date-picker>
+</div>
+
+<!-- Date Picker 2 -->
+<div class="mb-3">
+  <h4>Actual Return Date:</h4>
+  <app-date-picker
+    (onDatesSubmit)="onActualReturnDatesSubmit($event)"
+    (onDatesClear)="onActualReturnDatesSubmit($event)"
+  ></app-date-picker>
+</div>
+
+<!--  -->
+<div class="col d-flex align-items-center mb-3">
+  <h4 style="display: block; margin-right: 10px">Show:</h4>
+  <div ngbDropdown class="d-inline-block">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      id="dropdownBasic1"
+      ngbDropdownToggle
+    >
+      {{ !dataService.overdue ? "All" : "Overdue" }}
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem (click)="setOverdue(false)">All</button>
+      <button ngbDropdownItem (click)="setOverdue(true)">Overdue</button>
+    </div>
+  </div>
+</div>
+
+<!-- Table -->
+<div class="px-4">
+  <app-full-table [filteredData$]="filteredData$"></app-full-table>
+</div>
+
+<!-- Pagination -->
+<div class="d-flex flex-wrap justify-content-center align-center p-2">
+  <ngb-pagination
+    [collectionSize]="(itemsCount$ | async)!"
+    [(page)]="dataService.page"
+    [pageSize]="dataService.pageSize"
+    [maxSize]="8"
+    [rotate]="true"
+    [boundaryLinks]="true"
+  ></ngb-pagination>
+
+  <div style="width: 100%" class="d-flex justify-content-center">
+    <select
+      class="form-select"
+      style="width: auto"
+      name="pageSize"
+      [(ngModel)]="dataService.pageSize"
+    >
+      <option [ngValue]="10">10 items per page</option>
+      <option [ngValue]="15">15 items per page</option>
+      <option [ngValue]="20">20 items per page</option>
+    </select>
+  </div>
+</div>

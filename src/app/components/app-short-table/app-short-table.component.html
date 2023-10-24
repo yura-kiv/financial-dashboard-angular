@@ -1,1 +1,32 @@
-<p>app-short-table works!</p>
+<div>
+  <select
+    class="form-select mb-3"
+    aria-label="Default select example"
+    [(ngModel)]="sortMethod"
+    (change)="onSortMethodChange()"
+  >
+    <option value="averageLoanAmountByMonth">
+      The average amount of loans issued
+    </option>
+    <option value="totalLoanAmountByMonth">
+      The total amount of loans issued
+    </option>
+    <option value="countLoansByMonth">Count of loans</option>
+    <option value="countReturnedLoansByMonth">Count of loans</option>
+  </select>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Month</th>
+        <th scope="col">Information</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of metricData">
+        <th scope="row">{{ item.month }}</th>
+        <td>{{ item.information }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

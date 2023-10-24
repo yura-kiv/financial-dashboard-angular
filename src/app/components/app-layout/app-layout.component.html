@@ -1,44 +1,25 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-    <a
-      class="navbar-brand"
-      routerLink="/"
-      data-toggle="collapse"
-      href="#navbarSupportedContent"
-      role="button"
-      aria-expanded="false"
-      aria-controls="navbarSupportedContent"
-      >FinDashboard</a
-    >
+    <a class="navbar-brand" routerLink="/">FinDashboard</a>
     <button
       class="navbar-toggler"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-expanded="false"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="navbarSupportedContent">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a
-            routerLink="/full-table"
-            routerLinkActive="active"
-            class="nav-link"
-            href="#"
-            >Full table</a
-          >
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/full-table" href="#">Full table </a>
         </li>
         <li class="nav-item">
-          <a
-            routerLink="/short-table"
-            class="nav-link"
-            routerLinkActive="active"
-            href="#"
-            >Short table</a
-          >
+          <a class="nav-link" routerLink="/short-table" href="#">Short table</a>
         </li>
       </ul>
     </div>

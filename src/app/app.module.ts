@@ -12,6 +12,8 @@ import { AppPageShortTableComponent } from './pages/app-page-short-table/app-pag
 import { AppFullTableComponent } from './components/app-full-table/app-full-table.component';
 import { AppShortTableComponent } from './components/app-short-table/app-short-table.component';
 import { AppLayoutComponent } from './components/app-layout/app-layout.component';
+import { DecimalPipe } from '@angular/common';
+import { AppDatePickerComponent } from './components/app-date-picker/app-date-picker.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { AppLayoutComponent } from './components/app-layout/app-layout.component
     AppFullTableComponent,
     AppShortTableComponent,
     AppLayoutComponent,
+    AppDatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { AppLayoutComponent } from './components/app-layout/app-layout.component
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    DecimalPipe,
   ],
   providers: [],
   bootstrap: [AppComponent],

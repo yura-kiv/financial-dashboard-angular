@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { DataRes } from 'src/app/models/data.model';
-import { DataService } from 'src/app/services/data.service';
+import { Component, OnInit } from '@angular/core';
+import { Data } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DataService, DatePeriod } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-page-full-table',
@@ -8,13 +9,23 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./app-page-full-table.component.scss'],
 })
 export class AppPageFullTableComponent {
-  data: DataRes[] = [];
+  filteredData$: Observable<Data[]>;
+  itemsCount$: Observable<number>;
 
-  constructor(private dataService: DataService) {}
+  constructor(public dataService: DataService) {
+    this.filteredData$ = dataService.filteredData$;
+    this.itemsCount$ = dataService.itemsCount$;
+  }
 
-  ngOnInit(): void {
-    this.dataService.getData().subscribe((data) => {
-      this.data = data;
-    });
+  setOverdue(overdue: boolean) {
+    this.dataService.overdue = overdue;
+  }
+
+  onIssuanceDatesSubmit(data: DatePeriod) {
+    this.dataService.issuanceDate = data;
+  }
+
+  onActualReturnDatesSubmit(data: DatePeriod) {
+    this.dataService.actualReturnDate = data;
   }
 }

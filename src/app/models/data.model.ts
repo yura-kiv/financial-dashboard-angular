@@ -1,4 +1,4 @@
-export type DataRes = {
+export type Data = {
   id: number;
   user: string;
   issuance_date: string;
